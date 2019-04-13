@@ -29,7 +29,7 @@ class AddPost extends Component {
       createdAt: new Date(),
     }
 
-    onCreate(post);
+    dispatch({type: 'CREATE_POST', post})
 
     this.setState({ title: '', content: '' });
   };

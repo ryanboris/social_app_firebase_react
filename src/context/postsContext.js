@@ -1,6 +1,6 @@
 import React from 'react'
 
-const postsContext = React.createContext({
+const PostsContext = React.createContext({
   posts: [
     {
       id: '1',
@@ -33,4 +33,4 @@ const postsContext = React.createContext({
   ]
 })
 
-export { postsContext as default }
+export default PostsContext
