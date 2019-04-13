@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 
-import Posts from './Posts';
+import Posts from './Posts'
 
 class Application extends Component {
   state = {
@@ -14,10 +14,10 @@ class Application extends Component {
           uid: '123',
           displayName: 'Bill Murray',
           email: 'billmurray@mailinator.com',
-          photoURL: 'https://www.fillmurray.com/300/300',
+          photoURL: 'https://www.fillmurray.com/300/300'
         },
         stars: 1,
-        comments: 47,
+        comments: 47
       },
       {
         id: '2',
@@ -28,29 +28,29 @@ class Application extends Component {
           uid: '456',
           displayName: 'Mill Burray',
           email: 'notbillmurray@mailinator.com',
-          photoURL: 'https://www.fillmurray.com/400/400',
+          photoURL: 'https://www.fillmurray.com/400/400'
         },
         stars: 3,
-        comments: 0,
-      },
-    ],
-  };
+        comments: 0
+      }
+    ]
+  }
 
   handleCreate = post => {
-    const { posts } = this.state;
-    this.setState({ posts: [post, ...posts] });
-  };
+    const { posts } = this.state
+    this.setState({ posts: [post, ...posts] })
+  }
 
   render() {
-    const { posts } = this.state;
+    const { posts } = this.state
 
     return (
       <main className="Application">
         <h1>Think Piece</h1>
         <Posts posts={posts} onCreate={this.handleCreate} />
       </main>
-    );
+    )
   }
 }
 
-export default Application;
+export default Application

@@ -58,7 +58,9 @@ input[type='submit'],
   font-size: 1.1em;
   padding: 0.5em;
   @include button($button-color);
-  &.star, &.create, &.update {
+  &.star,
+  &.create,
+  &.update {
     @include button($input-color);
   }
   &.delete {
@@ -66,7 +68,7 @@ input[type='submit'],
   }
 }
 
-input[type="file"] {
+input[type='file'] {
   margin: 1em 0;
   padding: 1em 0;
 }
@@ -137,10 +139,10 @@ input[type="file"] {
     margin: 0;
     padding: 0.5em;
   }
-  input[type="text"] {
+  input[type='text'] {
     flex: 3;
   }
-  input[type="submit"] {
+  input[type='submit'] {
     flex: 1;
   }
 }

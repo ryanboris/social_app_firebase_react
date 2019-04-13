@@ -1,22 +1,26 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 
 class SignUp extends Component {
-  state = { displayName: '', email: '', password: '' };
+  state = {
+    displayName: '',
+    email: '',
+    password: ''
+  }
 
   handleChange = event => {
-    const { name, value } = event.target;
+    const { name, value } = event.target
 
-    this.setState({ [name]: value });
-  };
+    this.setState({ [name]: value })
+  }
 
   handleSubmit = event => {
-    event.preventDefault();
+    event.preventDefault()
 
-    this.setState({ displayName: '', email: '', password: '' });
-  };
+    this.setState({ displayName: '', email: '', password: '' })
+  }
 
   render() {
-    const { displayName, email, password } = this.state;
+    const { displayName, email, password } = this.state
 
     return (
       <form className="SignUp" onSubmit={this.handleSubmit}>
@@ -44,8 +48,8 @@ class SignUp extends Component {
         />
         <input type="submit" value="Sign Up" />
       </form>
-    );
+    )
   }
 }
 
-export default SignUp;
+export default SignUp
