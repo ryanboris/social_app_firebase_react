@@ -12,13 +12,29 @@ class Application extends Component {
   componentDidMount = async () => {
     const snapshot = await firestore.collection('posts').get()
     const posts = snapshot.docs.map(collectIdsAndDocs)
-
+    console.log('posts', posts)
     this.setState({ posts })
   }
 
-  handleCreate = post => {
+  handleCreate = async post => {
     const { posts } = this.state
-    this.setState({ posts: [post, ...posts] })
+
+    const docRef = await firestore.collection('posts').add(post)
+
+    const doc = await docRef.get()
+
+    const newPost = collectIdsAndDocs(doc)
+
+    this.setState({ posts: [newPost, ...posts] })
+  }
+
+  handleDelete = async id => {
+    const allPosts = this.state.posts
+
+    await firestore.doc(`posts/${id}`).delete()
+
+    const posts = allPosts.filter(post => post.id !== id)
+    this.setState({ posts })
   }
 
   render() {
@@ -27,7 +43,11 @@ class Application extends Component {
     return (
       <main className="Application">
         <h1>Socialeyes</h1>
-        <Posts posts={posts} onCreate={this.handleCreate} />
+        <Posts
+          posts={posts}
+          onCreate={this.handleCreate}
+          onDelete={this.handleDelete}
+        />
       </main>
     )
   }

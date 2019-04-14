@@ -1,41 +1,40 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 
 class AddPost extends Component {
-  state = { title: '', content: '' };
+  state = { title: '', content: '' }
 
   handleChange = event => {
-    const { name, value } = event.target;
-    this.setState({ [name]: value });
-  };
+    const { name, value } = event.target
+    this.setState({ [name]: value })
+  }
 
   handleSubmit = event => {
-    event.preventDefault();
+    event.preventDefault()
 
-    const { onCreate } = this.props;
-    const { title, content } = this.state;
+    const { onCreate } = this.props
+    const { title, content } = this.state
 
     const post = {
-      id: Date.now().toString(),
       title,
       content,
       user: {
         uid: '1111',
         displayName: 'Steve Kinney',
         email: 'steve@mailinator.com',
-        photoURL: 'http://placekitten.com/g/200/200',
+        photoURL: 'http://placekitten.com/g/200/200'
       },
       favorites: 0,
       comments: 0,
-      createdAt: new Date(),
+      createdAt: new Date()
     }
 
-    onCreate(post);
+    onCreate(post)
 
-    this.setState({ title: '', content: '' });
-  };
+    this.setState({ title: '', content: '' })
+  }
 
   render() {
-    const { title, content } = this.state;
+    const { title, content } = this.state
     return (
       <form onSubmit={this.handleSubmit} className="AddPost">
         <input
@@ -54,8 +53,8 @@ class AddPost extends Component {
         />
         <input className="create" type="submit" value="Create Post" />
       </form>
-    );
+    )
   }
 }
 
-export default AddPost;
+export default AddPost
