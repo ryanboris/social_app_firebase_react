@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { firestore } from '../firebase'
+import { firestore, auth } from '../firebase'
 class AddPost extends Component {
   state = { title: '', content: '' }
 
@@ -13,7 +13,7 @@ class AddPost extends Component {
 
     const { title, content } = this.state
 
-    const { uid, displayName, email, photoURL } = this.props.user
+    const { uid, displayName, email, photoURL } = auth.currentUser || {}
 
     const post = {
       title,
